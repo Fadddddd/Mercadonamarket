@@ -5,3 +5,6 @@ def accueil(request):
 
 def contact(request):
     return render (request, 'merchandise/contact.html')
+
+def aboutus(request):
+    return render(request, 'merchandise/aboutus.html')
