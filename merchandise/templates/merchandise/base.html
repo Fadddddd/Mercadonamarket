@@ -26,8 +26,10 @@
       </div>
     </nav>
     <div class="px-6 py-6">{% block content %} {% endblock %}</div>
-    
-    <footer class="py-6 px-6 flex justify-between bg-gray-500">
+
+    <footer
+      class="py-6 px-6 flex justify-between items-center border-t border-gray-200"
+    >
       <div class="w-2/3 pr-10">
         <h4 class="mb-5 text-black-400">A mercadona project</h4>
       </div>
@@ -37,7 +39,7 @@
           <li>
             <a
               href="{% url 'aboutus' %}"
-              class="text-lg text-black-500 hover:text-teal-700"
+              class="text-lg text-black-500 hover:text-green-700"
               >About</a
             >
           </li>
