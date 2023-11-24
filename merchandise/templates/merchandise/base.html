@@ -17,11 +17,15 @@
           class="text-lg font-semibold hover:text-gray-500"
           >Who are we?</a
         >
-        <a href="#" class="text-lg font-semibold hover:text-gray-500"
+        <a
+          href="{% url 'categories' %}"
+          class="text-lg font-semibold hover:text-gray-500"
           >Categories</a
         >
-        <a href="#" class="text-lg font-semibold hover:text-gray-500"
-          >Our Products</a
+        <a
+          href="{% url 'products' %}"
+          class="text-lg font-semibold hover:text-gray-500"
+          >Products</a
         >
       </div>
     </nav>

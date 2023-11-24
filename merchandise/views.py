@@ -13,3 +13,13 @@ def contact(request):
 
 def aboutus(request):
     return render(request, 'merchandise/aboutus.html')
+
+def products(request):
+    products=Product.objects.all()
+    return render(request, 'merchandise/products.html',
+    {'products':products})
+
+def categories(request):
+    categories=Category.objects.all()
+    return render (request, 'merchandise/categories.html',
+    {'categories':categories})

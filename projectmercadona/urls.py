@@ -18,12 +18,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from merchandise.views import accueil, contact, aboutus
+from merchandise.views import accueil, contact, aboutus, products, categories
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', accueil, name="accueil"),
     path('contact/', contact, name='contact'),
     path('aboutus/', aboutus, name='aboutus'),
-    path('merchandise/', include("merchandise.urls"))
+    path('products/', products, name='products'),
+    path('categories/', categories, name='categories'),
+    path('merchandise/', include("merchandise.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
