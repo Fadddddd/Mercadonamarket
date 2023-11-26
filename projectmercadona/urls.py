@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from merchandise.views import accueil, contact, aboutus, products, categories
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,7 @@ urlpatterns = [
     path('products/', products, name='products'),
     path('categories/', categories, name='categories'),
     path('merchandise/', include("merchandise.urls")),
+    path('admin-button/', views.admin_button, name='admin_button'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

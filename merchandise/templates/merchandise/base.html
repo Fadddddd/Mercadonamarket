@@ -20,12 +20,17 @@
         <a
           href="{% url 'categories' %}"
           class="text-lg font-semibold hover:text-gray-500"
-          >Categories</a
+          >Catalogue</a
         >
         <a
           href="{% url 'products' %}"
           class="text-lg font-semibold hover:text-gray-500"
           >Products</a
+        >
+        <a
+          href="{% url 'admin_button' %}"
+          class="text-lg font-semibold hover:text-gray-500"
+          ><button>Admin Dashboard</button></a
         >
       </div>
     </nav>
@@ -38,7 +43,6 @@
         <h4 class="mb-5 text-black-400">A mercadona project</h4>
       </div>
       <div class="w-1/3">
-        <h4 class="mb-5 font-semibold text-black-400">Menu</h4>
         <ul class="space-y-2">
           <li>
             <a
