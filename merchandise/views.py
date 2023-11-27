@@ -38,3 +38,6 @@ def categories(request):
     categories=Category.objects.all()
     return render (request, 'merchandise/categories.html',
     {'categories':categories})
+
+def privacy(request):
+    return render(request, 'merchandise/privacy.html')
