@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from merchandise.views import accueil, contact, aboutus, products, categories, privacy
+from merchandise.views import accueil, contact, aboutus, products, categories, privacy, search_view
 from . import views
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
     path('categories/', categories, name='categories'),
     path('privacy/', privacy, name='privacy'),
     path('merchandise/', include("merchandise.urls")),
+    path('search/', search_view, name="search"),
     path('admin-button/', views.admin_button, name='admin_button'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

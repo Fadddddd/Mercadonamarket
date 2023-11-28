@@ -10,7 +10,21 @@
     <nav
       class="py-6 px-6 flex justify-between items-center border-b border-gray-200"
     >
-      <a href="/" class="text-xl font-semibold hover:text-red-500">Mercadona</a>
+      <a href="/" class="text-xl font-semibold hover:text-red-500"
+        >🏠Mercadona</a
+      >
+      <div class="space-x-3">
+        <form action="{% url 'search' %}" method="GET">
+          <label for="search_product">🔎</label>
+          <input
+            type="text"
+            id="search_product"
+            name="q"
+            placeholder="search products"
+            class="border border-green-700 rounded-xl text-center"
+          /><br />
+        </form>
+      </div>
       <div class="space-x-6">
         <a
           href="{% url 'aboutus' %}"
