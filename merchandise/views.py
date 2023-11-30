@@ -52,3 +52,4 @@ def category(request):
 
 def privacy(request):
     return render(request, 'merchandise/privacy.html')
+
