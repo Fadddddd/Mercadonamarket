@@ -4,7 +4,6 @@
   <h2 class="mb-2 text-2xl text-center text-white">
     Welcome to Mercadona - Amazing prices for amazing people
   </h2>
-  <p class="mb-2 text-2xl text-center text-white">Our most recent products :</p>
 </div>
 <div class="grid grid-cols-3 gap-3 mt-3">
   {% for product in products %}
@@ -18,7 +17,7 @@
 
       {% for promotion in product.promotion_set.all %}
       <p>Discount: {{ promotion.discount_percentage }}% Off</p>
-      <p class="text-green-500">
+      <p class="text-red-500 font-bold">
         Discounted Price: ${{ promotion.get_discounted_price|floatformat:2 }}
       </p>
       {% endfor %}

@@ -3,7 +3,7 @@ from django.shortcuts import render
 from merchandise.models import Category, Product
 
 def accueil(request):
-    products=Product.objects.all()
+    products=Product.objects.filter()[0:6]
     categories=Category.objects.all()
     return render (request, 'merchandise/index.html',
     {'products':products,'categories':categories})
@@ -40,10 +40,15 @@ def search_view(request):
     }
     return render(request, "merchandise/search.html", context)
 
-def categories(request):
+def category(request):
+    products=Product.objects.all()
     categories=Category.objects.all()
-    return render (request, 'merchandise/categories.html',
-    {'categories':categories})
+    context= {
+        "categories": categories,
+        "products": products,
+    }
+    return render (request, 'merchandise/category.html',
+    context)
 
 def privacy(request):
     return render(request, 'merchandise/privacy.html')

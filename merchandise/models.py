@@ -16,7 +16,7 @@ class Product(models.Model):
     description=models.CharField(max_length=200)
     price=models.DecimalField(max_digits=5, decimal_places=2)
     image=models.ImageField(upload_to='merchandise_images', blank=True, null=True)
-    categories=models.ManyToManyField(Category)
+    category=models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name="category")
 
     def __str__(self):
         return self.libelle
