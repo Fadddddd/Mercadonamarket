@@ -50,6 +50,17 @@ def category(request):
     return render (request, 'merchandise/category.html',
     context)
 
+def category_product_list(request, id):
+    category=Category.objects.get(id=id)
+    products=Product.objects.filter(category=category)
+
+    context= {
+        "category": category,
+        "products": products
+    }
+    return render (request, "merchandise/category_product_list.html", context)
+
+
 def privacy(request):
     return render(request, 'merchandise/privacy.html')
 
