@@ -1,1 +1,1 @@
-"web: gunicorn django_tasklist.wsgi --log-file -" 
+web: python manage.py run_gunicorn
