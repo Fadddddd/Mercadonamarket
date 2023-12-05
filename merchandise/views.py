@@ -8,8 +8,8 @@ def accueil(request):
     return render (request, 'merchandise/index.html',
     {'products':products,'categories':categories})
 
-def contact(request):
-    return render (request, 'merchandise/contact.html')
+# def contact(request):
+#     return render (request, 'merchandise/contact.html')
 
 def aboutus(request):
     return render(request, 'merchandise/aboutus.html')

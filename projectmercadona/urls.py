@@ -18,13 +18,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from merchandise.views import accueil, contact, aboutus, products, privacy, search_view, category, category_product_list
+from merchandise.views import accueil, aboutus, products, privacy, search_view, category, category_product_list
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', accueil, name="accueil"),
-    path('contact/', contact, name='contact'),
     path('aboutus/', aboutus, name='aboutus'),
     path('products/', products, name='products'),
     # path('categories/', categories, name='categories'),
