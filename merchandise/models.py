@@ -15,7 +15,7 @@ class Product(models.Model):
     libelle=models.CharField(max_length=100, blank=True, null=True)    
     description=models.CharField(max_length=200)
     price=models.DecimalField(max_digits=5, decimal_places=2)
-    image=models.ImageField(upload_to='/media', blank=True, null=True)
+    image=models.ImageField(upload_to='media', blank=True, null=True)
     category=models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name="category")
 
     def __str__(self):
