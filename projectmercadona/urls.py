@@ -26,7 +26,6 @@ urlpatterns = [
     path('', accueil, name="accueil"),
     path('aboutus/', aboutus, name='aboutus'),
     path('products/', products, name='products'),
-    # path('categories/', categories, name='categories'),
     path('privacy/', privacy, name='privacy'),
     path('merchandise/', include("merchandise.urls")),
     path('search/', search_view, name="search"),
