@@ -32,6 +32,8 @@ urlpatterns = [
     path('category/', category, name="category"),
     path('category/<id>/', category_product_list, name="category_product_list"),
     path('admin-button/', views.admin_button, name='admin_button'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
