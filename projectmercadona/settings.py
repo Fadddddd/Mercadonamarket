@@ -30,8 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# config('DEBUG', default=False, cast=bool)
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['mercadonamarket-3e12abad2f7b.herokuapp.com']
@@ -85,12 +84,7 @@ WSGI_APPLICATION = 'projectmercadona.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-     'default': dj_database_url.config(
-    default=config('DATABASE_URL', default='postgres://localhost/dbname')
-    )
-        
-}
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
 DATABASES = {
     'default': {
