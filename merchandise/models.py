@@ -1,6 +1,8 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+
+
 class Category(models.Model):
     libelle = models.CharField(max_length=255, blank=True, null=True)
 
