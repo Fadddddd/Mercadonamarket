@@ -142,9 +142,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 django_heroku.settings(locals())
 
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": config("CLOUD_NAME"),
-    "API_KEY": config("API_KEY"),
-    "API_SECRET": config("API_SECRET"),
+    "CLOUD_NAME": 'dlkpj3e5x',
+    "API_KEY": '941273244738813',
+    "API_SECRET": 'AbsQuBtLY3XseI-qb_Xgq2-RiU8',
 }
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
