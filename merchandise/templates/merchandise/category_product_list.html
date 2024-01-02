@@ -1,33 +1,35 @@
-{% extends 'merchandise/base.html' %} {% block title %} Catalogue de Categories
-{%endblock%} {% block content %}
+{% extends 'merchandise/base.html' %}
+{% load cloudinary %}
+{% block title %} Catalogue de Categories {% endblock %}
+{% block content %}
 
 <div class="mt-5 mb-4 px-5 py-5 pb-1 bg-green-900 rounded-xl">
   <h2 class="mb-3 text-2xl text-white text-center">{{category.libelle}}</h2>
 </div>
 <p>
-  We found {{products.count}} item{{products.count|pluralize}} from your
-  selected category
+  We found {{products.count}} item{{products.count|pluralize}} from your selected category
 </p>
 <div class="grid grid-cols-3 gap-3 mt-3">
-    {% for product in products %}
-    <div>
-      <div class="flex-col">
-        <img src="{{ product.image.url}}" alt="Image" class="rounded h-48 w-96" />
-      </div>
-        <div class="px-1 mt-3 mb-5 gap-3 bg-white rounded-b-xl">
-          <h2 class="text-2xl text">{{product.libelle}}</h2>
-          <p class="text-gray-500">Price: ${{ product.price }}</p>
-  
-        {% for promotion in product.promotion_set.all %}
-        <p>Discount: {{ promotion.discount_percentage }}% Off</p>
-        <p class="text-red-500 font-bold">
-          Discounted Price: ${{ promotion.get_discounted_price|floatformat:2 }}
-        </p>
-        {% endfor %}
-          <p class="text-gray-500 text-[10px]">{{product.description}}</p>
-        </div>
-      </a>
+  {% for product in products %}
+  <div>
+    <div class="flex-col">
+      <!-- Use Cloudinary-generated image URL -->
+      <img src="{% cloudinary product.image.url width=300 height=200 crop='fill' %}" alt="Image" class="rounded h-48 w-96" />
     </div>
-    {% endfor %}
+    <div class="px-1 mt-3 mb-5 gap-3 bg-white rounded-b-xl">
+      <h2 class="text-2xl text">{{product.libelle}}</h2>
+      <p class="text-gray-500">Price: ${{ product.price }}</p>
+
+      {% for promotion in product.promotion_set.all %}
+      <p>Discount: {{ promotion.discount_percentage }}% Off</p>
+      <p class="text-red-500 font-bold">
+        Discounted Price: ${{ promotion.get_discounted_price|floatformat:2 }}
+      </p>
+      {% endfor %}
+      <p class="text-gray-500 text-[10px]">{{product.description}}</p>
+    </div>
+    </a>
   </div>
+  {% endfor %}
+</div>
 {% endblock content%}

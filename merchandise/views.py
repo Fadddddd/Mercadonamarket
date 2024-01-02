@@ -5,10 +5,6 @@ from merchandise.models import Category, Product
 def accueil(request):
     products=Product.objects.filter()[0:6]
     categories=Category.objects.all()
-
-    for product in products:
-        product.image_github_pages_url = product.image.url    
-    
     return render (request, 'merchandise/index.html',
     {'products':products,'categories':categories})
 
@@ -38,9 +34,6 @@ def search_view(request):
     query = request.GET.get('q')
     products = Product.objects.filter(
         libelle__icontains=query)
-    
-    for product in products:
-        product.image_github_pages_url = product.image.url
     context={
         "products" : products,
         "query": query,
@@ -50,9 +43,6 @@ def search_view(request):
 def category(request):
     products=Product.objects.all()
     categories=Category.objects.all()
-
-    for product in products:
-        product.image_github_pages_url = product.image.url  
 
     context= {
         "categories": categories,
@@ -64,10 +54,6 @@ def category(request):
 def category_product_list(request, id):
     category=Category.objects.get(id=id)
     products=Product.objects.filter(category=category)
-
-    for product in products:
-        product.image_github_pages_url = product.image.url
-
     context= {
         "category": category,
         "products": products
