@@ -9,8 +9,12 @@
 </div>
 <div class="grid grid-cols-3 gap-3 mt-3">
   {% for product in products %}
-  
-    <div class="flex-col">
+    {% with image_url=product.image.url %}
+      <p>Image URL: {{ image_url }}</p>
+      {% cloudinary image_url %}
+    {% endwith %}
+
+    {% comment %} <div class="flex-col">
       <!-- Use Cloudinary-generated image URL -->
       <img src="{% cloudinary product.image.url %}" class="rounded h-48 w-96" />
     </div>
@@ -39,7 +43,7 @@
     <a href="{% url 'category_product_list' category.id %}">
       <p class= "text-2xl bg-white ">{{category.libelle}}</p>
     </a>
-      <p>{{category.category.count}} item{{category.category.count|pluralize}}</p>
+      <p>{{category.category.count}} item{{category.category.count|pluralize}}</p> {% endcomment %}
       {% endfor %}
   </div>
    
