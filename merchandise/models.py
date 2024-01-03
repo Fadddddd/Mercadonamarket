@@ -31,7 +31,6 @@ class Promotion(models.Model):
     class Meta:
         verbose_name_plural = "Promotions"
 
-    @property
     def get_discounted_price(self):
         if self.discount_percentage > 0:
             price_now = self.product.price - (self.product.price * self.discount_percentage / 100)

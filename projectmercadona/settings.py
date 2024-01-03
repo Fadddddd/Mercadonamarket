@@ -17,6 +17,8 @@ from decouple import Csv, config
 import cloudinary
 
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -142,10 +144,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 django_heroku.settings(locals())
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    'API_KEY': os.environ.get('API_KEY'),
-    'API_SECRET': os.environ.get('API_SECRET'),
-}
+CLOUDINARY_URL = "cloudinary://941273244738813:AbsQuBtLY3XseI-qb_Xgq2-RiU8@dlkpj3e5x"
+cloudinary.config( 
+  cloud_name = "dlkpj3e5x", 
+  api_key = "941273244738813", 
+  api_secret = "AbsQuBtLY3XseI-qb_Xgq2-RiU8",
+  secure = True
+)
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+import cloudinary.uploader
+import cloudinary.api
