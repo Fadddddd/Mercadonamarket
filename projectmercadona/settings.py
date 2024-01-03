@@ -15,7 +15,8 @@ import os
 import django_heroku
 from decouple import Csv, config
 import cloudinary
-
+from cloudinary_storage.storage import MediaCloudinaryStorage
+import dj_database_url
 
 
 
@@ -87,14 +88,7 @@ WSGI_APPLICATION = "projectmercadona.wsgi.application"
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "mydatabase",
-        "USER": "elhan",
-        "PASSWORD": "passwordofadmin",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 # Password validation
@@ -152,7 +146,7 @@ cloudinary.config(
   secure = True
 )
 
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 import cloudinary.uploader
 import cloudinary.api
