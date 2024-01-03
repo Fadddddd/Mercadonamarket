@@ -35,7 +35,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = ["mercadonamarket-3e12abad2f7b.herokuapp.com"]
-
+#
 
 # Application definition
 

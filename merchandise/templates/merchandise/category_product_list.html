@@ -11,10 +11,10 @@
 </p>
 <div class="grid grid-cols-3 gap-3 mt-3">
   {% for product in products %}
-  <div>
+  
     <div class="flex-col">
       <!-- Use Cloudinary-generated image URL -->
-      <img src="{{product.image.url }}" style="width=300 height=200 crop='fill'" alt="Image" class="rounded h-48 w-96" />
+      <img src="{% cloudinary product.image.url %}" style="width=300 height=200 crop='fill'" alt="Image" class="rounded h-48 w-96" />
     </div>
     <div class="px-1 mt-3 mb-5 gap-3 bg-white rounded-b-xl">
       <h2 class="text-2xl text">{{product.libelle}}</h2>
@@ -29,7 +29,7 @@
       <p class="text-gray-500 text-[10px]">{{product.description}}</p>
     </div>
     </a>
-  </div>
-  {% endfor %}
 </div>
+  {% endfor %}
+
 {% endblock content%}
