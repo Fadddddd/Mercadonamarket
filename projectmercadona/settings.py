@@ -88,8 +88,12 @@ WSGI_APPLICATION = "projectmercadona.wsgi.application"
 
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        engine='django.db.backends.postgresql'
+    )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -139,12 +143,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 django_heroku.settings(locals())
 
 CLOUDINARY_URL = "cloudinary://941273244738813:AbsQuBtLY3XseI-qb_Xgq2-RiU8@dlkpj3e5x"
-cloudinary.config( 
-  cloud_name = "dlkpj3e5x", 
-  api_key = "941273244738813", 
-  api_secret = "AbsQuBtLY3XseI-qb_Xgq2-RiU8",
-  secure = True
-)
+
+CLOUDINARY_STORAGE= {
+  'CLOUD_NAME' : "dlkpj3e5x", 
+  'API_KEY' : "941273244738813", 
+  'API_SECRET' : "AbsQuBtLY3XseI-qb_Xgq2-RiU8",
+ 
+}
 
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
