@@ -1,21 +1,13 @@
 import os
-import dj_database_url
-from dotenv import load_dotenv
+import psycopg2
 
-# Load environment variables from .env file
-load_dotenv()
+# Use the DATABASE_URL environment variable
+db_url = os.environ.get("DATABASE_URL")
 
-# Get the database URL from the environment variables
-database_url = os.environ.get('DATABASE_URL')
-
-# Configure the database settings
-db_settings = dj_database_url.config(default=database_url, conn_max_age=600, ssl_require=True)
-
-# Try to connect to the database
 try:
-    import psycopg2
-    conn = psycopg2.connect(**db_settings)
-    print("Database connection established successfully!")
+    # Attempt to connect to the database
+    conn = psycopg2.connect(db_url)
+    print("Connected to the database!")
 except Exception as e:
     print(f"Error connecting to the database: {e}")
 finally:
