@@ -2,9 +2,10 @@ import os
 import django
 from django.db import connections
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'your_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'projectmercadona.settings')
 django.setup()
 
+# Test the default database connection
 try:
     connection = connections['default']
     connection.connect()
