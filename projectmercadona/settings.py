@@ -142,7 +142,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 django_heroku.settings(locals())
 
-CLOUDINARY_URL = "cloudinary://941273244738813:AbsQuBtLY3XseI-qb_Xgq2-RiU8@dlkpj3e5x"
 
 CLOUDINARY_STORAGE= {
   'CLOUD_NAME' : "dlkpj3e5x", 
