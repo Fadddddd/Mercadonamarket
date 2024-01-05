@@ -36,6 +36,7 @@ def products(request):
     return render(request, 'merchandise/products.html',
     {'products':products})
 
+#images fonctionnent pas
 def search_view(request):
     query = request.GET.get('q')
     products = Product.objects.filter(
@@ -57,13 +58,14 @@ def category(request):
     return render (request, 'merchandise/category.html',
     context)
 
+#ca aussi ca fonctionne pas pr le display d'images
 def category_product_list(request, id):
     category=Category.objects.get(id=id)
     products=Product.objects.filter(category=category)
 
     context= {
         "category": category,
-        "products": products
+        "products": products,
     }
     return render (request, "merchandise/category_product_list.html", context)
 
