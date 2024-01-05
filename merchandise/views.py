@@ -16,15 +16,21 @@ from merchandise.models import Category, Product
 #         'description': product.description,
 #     }
 
+#pb d'affichage des produits ici
 def accueil(request):
     products=Product.objects.filter()[0:6]
     categories=Category.objects.all()
+    context= {
+        "categories": categories,
+        "products": products,
+    }
     return render (request, 'merchandise/index.html',
     {'products':products,'categories':categories})
 
 def aboutus(request):
     return render(request, 'merchandise/aboutus.html')
 
+#probleme d'affichage des prod ici aussi
 def products(request):
     products=Product.objects.all()
     return render(request, 'merchandise/products.html',
