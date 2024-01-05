@@ -20,6 +20,7 @@ import dj_database_url
 
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,11 +32,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = True
+print("DEBUG:", DEBUG)
 
 
-ALLOWED_HOSTS = ["mercadonamarket-3e12abad2f7b.herokuapp.com"]
+
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["mercadonamarket-3e12abad2f7b.herokuapp.com", "localhost:8000"]
+print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
 #
+
 
 # Application definition
 
@@ -152,3 +158,4 @@ CLOUDINARY_STORAGE= {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 import cloudinary.uploader
 import cloudinary.api
+

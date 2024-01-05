@@ -33,7 +33,6 @@ urlpatterns = [
     path('category/<id>/', category_product_list, name="category_product_list"),
     path('admin-button/', views.admin_button, name='admin_button'),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
