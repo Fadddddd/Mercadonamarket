@@ -1,6 +1,6 @@
 {% extends 'merchandise/base.html' %}
 
-{% block title %} Catalogue de Categories {% endblock %}
+{% block title %} Content of Categories {% endblock %}
 {% block content %}
 
 <div class="mt-5 mb-4 px-5 py-5 pb-1 bg-green-900 rounded-xl">
@@ -11,7 +11,7 @@
 </p>
 <div class="grid grid-cols-3 gap-3 mt-3">
   {% for product in products %}
-  
+<div>
     <div class="flex-col">
       <!-- Use Cloudinary-generated image URL -->
       <img src="{{product.image.url }}" style="width=300 height=200 crop='fill'" alt="Image" class="rounded h-48 w-96" />
@@ -31,5 +31,5 @@
     </a>
 </div>
   {% endfor %}
-
+</div>
 {% endblock content%}
