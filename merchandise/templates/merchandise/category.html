@@ -1,4 +1,4 @@
-{% extends 'merchandise/base.html' %} {% block title %} Catalogue {%endblock%}
+{% extends 'merchandise/base.html' %} {% load cloudinary %}{% block title %} Catalogue {%endblock%}
 {% block content %}
 
 <div class="mt-3 px-3 py-6 bg-green-900 rounded-xl">
@@ -10,7 +10,7 @@
   {% for product in products %}
   <div>
     <div class="flex-col">
-      <img src="{{ product.image.url}}" class="rounded h-48 w-96" />
+      <img src="{% cloudinary product.image.url%}" class="rounded h-48 w-96" />
     </div>
       <div class="px-1 mt-3 mb-5 gap-3 bg-white rounded-b-xl">
         <h2 class="text-2xl text">{{product.libelle}}</h2>
