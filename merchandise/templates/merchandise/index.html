@@ -1,5 +1,5 @@
-{% extends 'merchandise/base.html' %} {% load cloudinary %} {% block title %}
-Welcome {% endblock %} {% block content %}
+{% extends 'merchandise/base.html' %} {% block title %} Welcome {% endblock %}
+{% block content %}
 <div class="mt-3 px-3 py-6 bg-green-900 rounded-xl">
   <h1 class="mb-2 text-3xl text-center text-white">
     Welcome to Mercadona - Amazing prices for amazing people
@@ -11,7 +11,7 @@ Welcome {% endblock %} {% block content %}
   <div>
     <div class="flex-col">
       <!-- Use Cloudinary-generated image URL -->
-      <img src="{% cloudinary product.image.url %}" class="rounded h-48 w-96" />
+      <img src="{{product.image.url }}" class="rounded h-48 w-96" />
     </div>
     <div class="px-1 mt-3 mb-5 gap-3 bg-white rounded-b-xl">
       <h2 class="text-2xl">{{ product.libelle }}</h2>
